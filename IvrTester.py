@@ -20,7 +20,7 @@ class IvrTester:
         until the call is connected, canceled, busy, no-answer, or failed
     """
     def make_call(self, from_address, to_address):
-        self.current_call_sid = self.client.calls.create(url='http://ed56-98-27-180-53.ngrok.io/voice',
+        self.current_call_sid = self.client.calls.create(url=os.environ["NGROK_URL"],
                                                          to=to_address,
                                                          from_=from_address).sid
         unanswered = True
